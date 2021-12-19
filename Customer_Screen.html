@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <title></title>
+        <style type="text/css">
+            body
+            {
+                font-family: Arial;
+                font-size: 10pt;
+            }
+        </style>
+    <title>CUSTOMER SCREEN</title>
+  </head>
+
+
+  <body>
+<p>Hello! Looking for some safe place to invest all your savings?
+   <form>
+<label for="Search Stock"><b>Search Stock</b></label>
+      <select>
+        <option value="DBS">DBS</option>
+<option value="Amazon">Amazon</option>
+<option value="Facebook">Facebook</option>
+<option value="Apple">Apple</option>
+      </select>
+
+      <br><br>
+      <script type="text/javascript">
+        function EnableDisableTextBox(ddlModels) {
+            var selectedValue = ddlModels.options[ddlModels.selectedIndex].value;
+            var txtOther = document.getElementById("txtOther");
+            txtOther.disabled = selectedValue == 1 ? false : true;
+            if (!txtOther.disabled) {
+                txtOther.focus();
+            }
+        }
+    </script>
+    <span>Order Type</span>
+    <select id="ddlModels" onchange="EnableDisableTextBox(this)">
+        <option value="1">LIMIT</option>
+        <option value="2">MARKET</option>
+    </select>
+    <br />
+    <br />
+    Price:
+    <input type="text" id="txtOther" disabled="disabled" />
+
+
+ <h4>  QUANTITY</h4>
+ <input type="number" min="0" value="Quantity"><br><br>
+   <input type="submit" value="Place Order">
+    </form>
+  </body>
+
+
+</html>
+
+</html>
