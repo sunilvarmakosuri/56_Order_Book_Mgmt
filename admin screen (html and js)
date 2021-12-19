@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hackthon </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="dbs.css">
+</head>
+<body class="bg">
+
+    <div class="container">
+        <h1>stock List</h1>
+
+    <button onclick="open" class="bn">Open Market</button>
+    <button onclick="close" class="bn1">Close Market</button>
+
+  <form>
+     <input onclick=" " type="date" class="bn2" From Date>
+      <input onclick=" " type="date" class="bn2" To Date>
+      <button onclick="show" class="bn1">Show Orders</button>
+ </form>
+        <br />
+        <div id="book">
+
+        </div>
+    </div>
+    <form>
+        <label>Execution price</label>
+    <input onclick=" " type="text">
+    <label>Execution qty</label>
+    <input onclick=" " type="text">
+</form>
+</body>
+</html>
+
+<script type="text/javascript">
+    var list = [
+            {
+                "ID": "1",
+                "Name": "abc",
+                "stock type": "limit",
+                "stock qty": "50",
+                "status": "yes",
+                "date":"11/06/2021"
+            },
+            {
+                
+                "ID": "2",
+                "Name": "Han",
+                "stock type": "limit",
+                "stock qty": "50",
+                "status": "no",
+                "date":"11/05/2021"
+            },
+            {
+                "ID": "3",
+                "Name": "Has",
+                "stock type": "limit",
+                "stock qty": "55",
+                "status": "npo",
+                "date":"11/02/2021"
+            }
+            ,
+            {
+                
+                "ID": "4",
+                "Name": "Hcn",
+                "stock type": "limit",
+                "stock qty": "65",
+                "status": "yes",
+                "date":"11/04/2021"
+            },
+            {
+                
+                "ID": "5",
+                "Name": "Hjdnj",
+                "stock type": "limit",
+                "stock qty": "66",
+                "status": "yes",
+                "date":"11/03/2021"
+            },
+    ]
+    convert();
+    function convert()
+    {
+
+       
+        var tablecolumns = [];
+        for (var i = 0; i < list.length; i++) {
+            for (var key in list[i]) {
+                if (tablecolumns.indexOf(key) === -1) {
+                    tablecolumns.push(key);
+                }
+            }
+        }
+        var table = document.createElement("table");
+        table.classList.add("table");
+        table.classList.add("table-striped");
+        table.classList.add("table-bordered");
+
+        var tr = table.insertRow(-1);
+
+        for (var i = 0; i < tablecolumns.length; i++) {
+
+            var th = document.createElement("th");
+            th.innerHTML = tablecolumns[i];
+            tr.appendChild(th);
+        }
+
+        for (var i = 0; i < list.length; i++) {
+            tr = table.insertRow(-1);
+            for (var j = 0; j < tablecolumns.length; j++) {
+                var tabCell = tr.insertCell(-1);
+                tabCell.innerHTML = list[i][tablecolumns[j]];
+            }
+        }
+
+    
+        var book = document.getElementById("book");
+        book.innerHTML = "";
+        book.appendChild(table);
+    }
+
+function show(){
+}
+function close(){
+}
+function open(){
+}
+
+
+
+</script>
